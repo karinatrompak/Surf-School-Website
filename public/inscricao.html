@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Escola de Surf</title>
+	<link rel="stylesheet" href="./css/form.css">
+    <link rel="stylesheet" href="./css/footer.css">
+    <link rel="icon" type="image/x-icon" href="./img/icone.png">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://kit.fontawesome.com/827242dd08.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+        <div class="nav-container">
+            <div id="logo"><img src="./img/icone.png"><b>   ESCOLASURF</b></div>
+            <nav class="navbar">
+                <div class="nav-mobile">
+                    <a id="nav-toggle" href="#!"><span></span></a>
+                </div>
+                <ul class="nav-list">                
+                    <li><a href="./index.html" class="page-scroll">HOME</a></li>                    
+                    <li><a href="./inscricao.html" class="page-scroll">INSCRIÇÃO</a></li>        
+                </ul>
+            </nav> 
+        </div><br><br>
+
+<div class="container">
+    <div class="table-responsive">
+        <div class="table-wrapper">
+            <div class="table-title">
+                <div class="row">
+                    <div class="col-xs-9">
+                        <h1>Inscrição de Aluno</h1>
+                    </div>
+                    <div class="col-xs-3">
+                        <a href="#editarAluno" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
+                        <a href="#deleteAluno" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
+                        <a href="#addAluno" class="btn btn-success" data-toggle="modal"><i class="material-icons">&#xE147;</i> <span>Novo Aluno</span></a>				
+                    </div>
+                </div>
+            </div>
+            <table class="table table-striped table-hover" id="mostrarAluno">
+                <thead>
+                    <tr>
+                        <th>Número</th>
+                        <th>Nome</th>
+                        <th>Telemóvel</th>
+                        <th>E-mail</th>
+                        <th>Aula</th>
+                    </tr>
+            </table>
+            <script>
+
+                // res é a resposta (com a informação) enviada pela api do servidor
+                $.ajax({
+                  type: "GET",
+                   url: "/mostrarAlunos",
+                  success: function (res) {
+                   $.each(res, function (index, element) {
+                     console.log("success");
+                  const markup = 
+                  `<tr>
+                    <th>${element.num}</th>
+                    <th>${element.nome}</th>
+                    <th>${element.telemovel}</th>
+                    <th>${element.email}</th>
+                    <th>${element.aula}</th>
+                  </tr>`;
+                
+                document.getElementById("mostrarAluno").insertAdjacentHTML("beforeend", markup);
+          
+                    });
+                    },
+                });
+                </script>
+        </div>
+    </div>   
+    <a href="./index.html">Voltar ao menu principal</a>     
+</div>
+<!-- Edit Modal HTML -->
+<div id="addAluno" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">						
+                <h4 class="modal-title">Adicionar Aluno</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            </div>
+            <div class="modal-body">					
+                <div class="form-group">
+                    <label>Nome</label>
+                    <input type="text" id="nomeAluno" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label>Telemóvel</label>
+                    <input type="text"id="TelemovelAluno" class="form-control" required></input>
+                </div>
+                <div class="form-group">
+                    <label>E-mail</label>
+                    <input type="email" id="emailAluno" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label>Aula</label>
+                    <input type="text" id="AulaAluno" class="form-control" required>
+                </div>					
+            </div>
+            <div class="modal-footer">
+                <input type="button" class="btn btn-default" data-dismiss="modal" value="Cancelar">
+                <input type="submit" onclick="criarAluno()"class="btn btn-success" value="Adicionar" id="inserirAluno">
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    function criarAluno(){
+        
+            let novoNome = document.getElementById("nomeAluno").value;
+            let novoTelemovel = document.getElementById("TelemovelAluno").value;
+            let novoEmail = document.getElementById("emailAluno").value;
+            let novoAula = document.getElementById("AulaAluno").value;
+        
+            data = {
+                    "num": 0,
+                    "nome":novoNome,
+                    "telemovel":novoTelemovel,
+                    "email":novoEmail,
+                    "aula":novoAula
+                    }
+
+            // envia a informação na variavel "data" logo apos o url 
+            $.post('/criarAluno',data,function(data) {
+
+                console.log(data);
+
+            },'json');
+
+            // refresh na página após submeter a informação 
+            window.location.reload();
+
+    }
+</script>
+<div id="editarAluno" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">						
+                <h4 class="modal-title">Editar Aluno</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            </div>
+            <div class="modal-body">	
+                <div class="form-group">
+                    <label>Número</label>
+                    <input type="number"  id="numeroAlunoMudar" class="form-control" required>
+                </div>				
+                <div class="form-group">
+                    <label>Nome</label>
+                    <input type="text" id="MudaNome" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label>Telemóvel</label>
+                    <input type="text" id="MudaTelemovel" class="form-control" required>
+                </div>	
+                <div class="form-group">
+                    <label>E-mail</label>
+                    <input type="email" id="MudaEmail" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label>Aula</label>
+                    <input type="text" id="MudaAula" class="form-control" required>
+                </div>					
+            </div>
+            <div class="modal-footer">
+                <input type="button" class="btn btn-default" data-dismiss="modal" value="Cancelar">
+                <input type="submit" onclick="editarAluno()" id="muda" class="btn btn-info" value="Guardar">
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    function editarAluno(){
+            let numeroAlunoMudar = document.getElementById("numeroAlunoMudar").value;
+
+            let mudaNome = document.getElementById("MudaNome").value;
+            let mudaTelemovel = document.getElementById("MudaTelemovel").value;
+            let mudaEmail = document.getElementById("MudaEmail").value;
+            let mudaAula = document.getElementById("MudaAula").value;
+
+            data = {
+                "num": numeroAlunoMudar,
+                "nome":mudaNome,
+                "telemovel":mudaTelemovel,
+                "email":mudaEmail,
+                "aula":mudaAula
+                   }
+
+                   $.ajax({
+                    type: "PUT",
+                       url: `http://localhost:3000/editarAluno/${numeroAlunoMudar}`,
+                      contentType: "application/json",
+                      data: JSON.stringify(data),
+                    success: function () {
+                      console.log("Editado com Sucesso");
+                  },
+              });
+
+             // refresh na página apos submeter a informação 
+        window.location.reload();
+        }
+    
+        </script>
+<!-- Delete Modal HTML -->
+<div id="deleteAluno" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="form-group" style="text-align: center;">
+                <label>Número
+                <input id="numeroAlunoEliminar" class="form-control" required></label>
+            </div>	
+            <div class="modal-body">					
+                <p>Tem a certeza que pretende eliminar este aluno?</p>
+                <p class="text-warning"><small>Esta opção não pode ser retrocedida.</small></p>
+            </div>
+            <div class="modal-footer">
+                <input type="button" class="btn btn-default" data-dismiss="modal" value="Cancelar">
+                <input type="button" onclick="apagarAluno()" id="eliminaAluno" class="btn btn-danger" value="Apagar">
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    function apagarAluno(){
+            let numeroAlunoEliminar = document.getElementById("numeroAlunoEliminar").value;
+    
+                $.ajax({
+                type: "DELETE",
+                url: `http://localhost:3000/apagarAluno/${numeroAlunoEliminar}`,
+                success: function () {
+                console.log ("Apagado com Sucesso");
+                },
+            });
+            // refresh na página apos submeter a informação 
+            window.location.reload();
+        }
+    
+        </script>
+        <!--<script type="text/javascript" src="server.js"></script> -->
+<script type="text/javascript" src="/public/app.js"></script>
+</body>
+

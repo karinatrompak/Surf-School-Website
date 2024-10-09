@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>	
+		<title>LOGIN</title>
+        <link rel="icon" type="image/x-icon" href="./img/icone.png">
+	</head>
+	<body>
+		<form>
+			<input type="text" id="username" placeholder="Choose Username">
+			<input type="password" id="password" placeholer="Choose Password">
+			<button type="button" onclick="getLogin()">Login</button>
+		</form>
+
+		<script src="./scripts/loginscript.js"></script>
+        <script>
+            function getLogin(){
+                var email = document.getElementById("username");
+                var pass = document.getElementById("password");
+            
+                if (email.value == "admin" && pass.value == "12345"){
+                    localStorage.setItem("acesso",true);
+                    alert("Logado com sucesso")
+                    window.location.href="http://localhost:3000/inscricao.html";
+                } else{
+                    alert("Login inválido")
+              }
+            }
+            </script>
+
+
+	</body>
+</html>

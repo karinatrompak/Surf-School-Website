@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Escola de Surf</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/footer.css">
+    <link rel="icon" type="image/x-icon" href="./img/icone.png">
+    <script src="https://kit.fontawesome.com/827242dd08.js" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="./scripts/JQuery/jquery-3.6.1.min.js"></script>
+    
+    <script type="text/javascript">
+        (function($) { // Begin jQuery
+            $(function() {
+                $('nav ul li a:not(:only-child)').click(function(e) {
+                    $(this).siblings('.nav-dropdown').toggle();
+                    // Close one dropdown when selecting another
+                    $('.nav-dropdown').not($(this).siblings()).hide();
+                    e.stopPropagation();
+                });
+                // Clicking away from dropdown will remove the dropdown class
+                $('html').click(function() {
+                            $('.nav-dropdown').hide();
+                });
+                // Toggle open and close nav styles on click
+                $('#nav-toggle').click(function() {
+                    $('nav ul').slideToggle();
+                });
+                // Hamburger to X toggle
+                $('#nav-toggle').on('click', function() {
+                    this.classList.toggle('active');
+                });
+            }); // end DOM ready
+        })(jQuery); // end jQuery
+    </script>
+</head>
+<body>
+    <script type="text/javascript" src="./scripts/script2.js"></script>
+        <div class="nav-container">
+            <div id="logo"><img src="./img/icone.png"><b>   ESCOLASURF</b></div>
+            <nav class="navbar">
+                <div class="nav-mobile">
+                    <a id="nav-toggle" href="#!"><span></span></a>
+                </div>
+                <ul class="nav-list">                
+                    <li><a href="#home" class="page-scroll">HOME</a></li>
+                    <li><a href="#aulas">AULAS<i class="fa-solid fa-angle-down"></i></a>
+                        <ul class="nav-dropdown">
+                            <li><a href="#surf" class="page-scroll">AULAS DE SURF</a></li>
+                            <li><a href="#board" class="page-scroll">AULAS DE BODYBOARD</a></li>
+                            <li><a href="#yoga" class="page-scroll">AULAS DE PADDLE BOARD YOGA</a></li>
+                        </ul>
+                    </li>                    
+                    <li><a href="./login.html" class="page-scroll">ADMIN</a></li>
+                </ul>
+            </nav> 
+        </div>
+
+    <section class="slides">
+        <div class="slideshow-container">
+
+            <div class="mySlides fade">
+              <img src="./img/imagem1.jpg" style="width:100%">
+              <div class="text">ESCOLA DE SURF</div>
+            </div>
+          
+            <div class="mySlides fade">
+              <img src="./img/imagem2.jpg" style="width:100%">
+              <div class="text">AULAS DE SURF</div>
+            </div>
+
+            <div class="mySlides fade">
+              <img src="./img/imagem5.jpg" style="width:100%">
+              <div class="text">AULAS DE BODYBOARD</div>
+            </div>
+
+            <div class="mySlides fade">
+              <img src="./img/imagem4.jpg" style="width:100%">
+              <div class="text">AULAS DE PADDLE BOARD YOGA</div>
+            </div>
+          
+            <div class="mySlides fade">
+              <img src="./img/imagem4.jpg" style="width:100%">
+              <div class="text">ALUGUER DE MATERIAIS</div>
+            </div>
+          
+            <!-- Next and previous buttons -->
+            <a class="prev" onclick="plusSlides(-1)"><i class="fa-solid fa-chevron-left"></i></a>
+            <a class="next" onclick="plusSlides(1)"><i class="fa-solid fa-chevron-right"></i></a>
+          </div>
+          <br>
+          
+          <!-- The dots/circles -->
+          <div style="text-align:center">
+            <span class="dot" onclick="currentSlide(1)"></span>
+            <span class="dot" onclick="currentSlide(2)"></span>
+            <span class="dot" onclick="currentSlide(3)"></span>
+            <span class="dot" onclick="currentSlide(4)"></span>
+            <span class="dot" onclick="currentSlide(5)"></span>
+          </div>
+
+          <script type="text/javascript" src="./scripts/script.js"></script>
+    </section>
+
+    <br>
+
+    <section id="home">
+               
+        <div id="section1" class="container-fluid">
+            <h1>SOBRE NÓS</h1>
+            <br>
+            <hr>
+            <br>
+            <p>Somos a Escola de Surf mais antiga do Porto! Venha ter connosco e comece a deslizar nas ondas.</p>
+            <p>Os desportos de água melhoram a sua saúde física e mental, num ambiente descontraído e divertido.</p>
+            <br>
+            <br>
+            <img id="custom" src="./img/customer-feedback.png" alt="">
+            <img id="secure" src="./img/secure.png" alt="">
+            <img id="speed" src="./img/speedometer.png" alt="">
+            <img id="cool" src="./img/shaka.png" alt="">
+        </div>
+
+        <div>
+        <p id="sat">A satisfação do cliente</p>
+        <p id="sat1">é a nossa prioridade.</p>
+        </div>
+
+        <div>
+        <p id="sec">Todos os nossos treinadores</p>
+        <p id="sec1">têm certificado, assegurando</p>
+        <p id="sec2">uma experiência sem risco.</p> 
+        </div>     
+        
+        <div>
+        <p id="niv">O nosso objetivo é levar-te</p>
+        <p id="niv1">ao nível máximo.</p>
+        </div>
+
+        <div>
+        <p id="curtir">Curtir e partilhar o estilo</p>
+        <p id="curtir1">de vida de um surfista.</p>
+        </div>
+
+        <br><br>
+
+        <div id="equipa">
+          <h1>EQUIPA</h1>
+          <br><br>
+          <div class="circportrait"><img id="ava" src="./img/avatar.jpg">
+            <div class="overlay">
+              <div id="t1">Inês Silva<br>
+                        +351 918 331 555
+                       info@surfschool.pt</div>
+            </div>
+          </div>
+          <div id="portrait"><img src="./img/avatar1.jpg" alt="">
+            <div class="overlay">
+              <div id="t2">João Ferreira<br>
+                          +351 912 884 112
+                         info@surfschool.pt</div>
+            </div>
+          </div>      
+        </div>
+    </section> 
+    </div><br><br>
+    
+    <section id="surf">
+        <div id="section2" class="container-fluid">
+            <h1>AULAS DE SURF</h1><br><hr><br>
+            <p>Aulas de Surf para todas as idades. Aprenda a surfar connosco, divertimento garantido!</p>
+        </div>
+        <div class="price-container">
+          <h1 id="titpreco">ESCOLHA A SUA EXPERIÊNCIA</h1>
+          <div class="price-row">
+            <div class="price-col">
+              <h1>AULAS PRIVADAS</h1>
+              <hr class="linha">
+              <h2>100€</h2>
+              <h3>1 pessoa</h3>
+              <ul>
+                <li>90 min</li>
+                <li>Foco no Performance</li>
+                <li>Para principiantes, nível intermédio e avançado</li>
+                <li>Inclui: prancha de surf, fato e seguro</li>
+              </ul>
+              <button>ESCOLHER</button>
+            </div>
+
+            <div class="price-col">
+              <h1>AULAS DE GRUPO</h1>
+              <hr class="linha">
+              <h2>35€</h2>
+              <h3>Pack de 5 aulas 150€</h3>
+              <ul>
+                <li>90 min</li>
+                <li>Paixão por Surf em grupo</li>
+                <li>Para principiantes, nível intermédio e avançado</li>
+                <li>Inclui: prancha de surf, fato e seguro</li>
+              </ul>
+              <button>ESCOLHER</button>
+            </div>
+
+            <div class="price-col">
+              <h1>AULAS CRIANÇAS</h1>
+              <hr class="linha">
+              <h2>30€</h2>
+              <h3>Pack de 5 aulas 130€</h3>
+              <ul>
+                <li>90 min</li>
+                <li>Segurança e Diversão</li>
+                <li>Para principiantes e nível intermédio</li>
+                <li>Inclui: prancha de surf, fato e seguro</li>
+              </ul>
+              <button>ESCOLHER</button>
+            </div>
+          </div>
+        </div>
+    </section>
+        <br>
+
+    <section id="board">
+        <div id="section3" class="container-fluid">
+            <h1>AULAS DE BODYBOARD</h1><br><hr><br>
+            <p>As aulas de bodyboard na Soul Spot Surf School são constituídas por pequenos grupos.</p>
+            <p>Aqueça com os pés na areia, conheça as regras mais importantes do bodyboard e prepare-se para deslizar na espuma e na onda.</p>
+        </div>
+        <div class="price-container">
+          <h1 id="titpreco">ESCOLHA A SUA EXPERIÊNCIA</h1>
+          <div class="price-row">
+            <div class="price-col">
+              <h1>AULAS PRIVADAS</h1>
+              <hr class="linha">
+              <h2>85€</h2>
+              <h3>1 pessoa</h3>
+              <ul>
+                <li>90 min</li>
+                <li>Foco no Performance</li>
+                <li>Para principiantes, nível intermédio e avançado</li>
+                <li>Inclui: prancha de bodyboard, fato e seguro</li>
+              </ul>
+              <button>ESCOLHER</button>
+            </div>
+
+            <div class="price-col">
+              <h1>AULAS DE GRUPO</h1>
+              <hr class="linha">
+              <h2>25€</h2>
+              <h3>Pack de 5 aulas 120€</h3>
+              <ul>
+                <li>90 min</li>
+                <li>Paixão por Bodyboard em grupo</li>
+                <li>Para principiantes, nível intermédio e avançado</li>
+                <li>Inclui: prancha de bodyboard, fato e seguro</li>
+              </ul>
+              <button>ESCOLHER</button>
+            </div>
+
+            <div class="price-col">
+              <h1>AULAS CRIANÇAS</h1>
+              <hr class="linha">
+              <h2>20€</h2>
+              <h3>Pack de 5 aulas 90€</h3>
+              <ul>
+                <li>90 min</li>
+                <li>Segurança e Diversão</li>
+                <li>Para principiantes e nível intermédio</li>
+                <li>Inclui: prancha de bodyboard, fato e seguro</li>
+              </ul>
+              <button>ESCOLHER</button>
+            </div>
+          </div>
+        </div>
+    </section>
+        <br>
+
+    <section id="yoga">
+        <div id="section4" class="container-fluid">
+            <h1>AULAS DE PADDLE BOARD YOGA</h1><br><hr><br>
+            <p>Surf e Yoga - A simbiose perfeita!</p>
+        </div>
+        <div class="price-container">
+          <h1 id="titpreco">ESCOLHA A SUA EXPERIÊNCIA</h1>
+          <div class="price-row">
+            <div class="price-col">
+              <h1>AULAS PRIVADAS</h1>
+              <hr class="linha">
+              <h2>80€</h2>
+              <h3>1 pessoa</h3>
+              <ul>
+                <li>90 min</li>
+                <li>Foco no Performance</li>
+                <li>Para principiantes, nível intermédio e avançado</li>
+                <li>Inclui: prancha de surf e seguro</li>
+              </ul>
+              <button>ESCOLHER</button>
+            </div>
+
+            <div class="price-col">
+              <h1>AULAS DE GRUPO</h1>
+              <hr class="linha">
+              <h2>25€</h2>
+              <h3>Pack de 5 aulas 120€</h3>
+              <ul>
+                <li>90 min</li>
+                <li>Foco no relaxamento em grupo</li>
+                <li>Para principiantes, nível intermédio e avançado</li>
+                <li>Inclui: prancha de surf e seguro</li>
+              </ul>
+              <button>ESCOLHER</button>
+            </div>
+          </div>
+        </div>
+    </section><br><br>
+    
+    <script src="https://cdn.jsdelivr.net/gh/cferdinandi/smooth-scroll@15.0.0/dist/smooth-scroll.polyfills.min.js"></script> 
+    <script src="./scripts/script2.js"></script>      
+</body>
+
+<footer class="footer">
+  <div class="container">
+    <div class="row">
+      <div class="footer-col">
+        <h4>Morada e Contactos</h4>
+        <ul>
+          <li><a href="#">Rua do Abc, nº1234</a></li>
+          <li><a href="#">4470-115 Porto</a></li>
+          <li><a href="#">+351 934 567 891</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Informações Legais</h4>
+        <ul>
+          <li><a href="#">Politica de Privacidade</a></li>
+          <li><a href="#">Livro de Reclamações</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Copyright</h4>
+        <ul>
+          <li><a href="#">2022 All Rights Reserved by 
+            Cristina Monteiro & Karina Trompak.</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>follow us</h4>
+        <div class="social-links">
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-linkedin-in"></i></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</html>

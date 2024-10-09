@@ -1,0 +1,628 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+.navbar ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;  
+}
+
+.navbar ul li {
+    float: left;
+    position:sticky;
+}
+
+.navbar ul li a {
+    display: block;
+    color: #463f3f;
+    text-align: center;
+    padding: 0 20px;
+    text-decoration: none;
+    line-height: 70px;
+    background: #ffffff;
+}
+
+.navbar ul li a:hover {
+    background: #f2f2f2;
+}
+
+.navbar {
+   float: right;
+   margin-top: 5px;
+}
+
+nav ul li a:not(:only-child):after {
+    padding-left: 4px;
+}
+
+nav ul li ul li {
+    min-width: 300px;
+}
+
+nav ul li ul li a { 
+    padding: 15px;
+    line-height: 20px;
+}
+
+.nav-dropdown {
+    position:absolute;
+    /* Guarantees that the dropdown will display on top of any content. */
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.15);
+    display: none;
+}
+
+.nav-mobile {
+    display: none;
+    position: absolute;
+    top: 0;
+    right: 0;
+    background: #fff;
+    height: 70px;
+    width: 70px;
+}
+
+@media only screen and (max-width: 800px) {
+    .nav-mobile {
+        display: block;
+    }
+
+    nav {
+        width: 100%;
+        padding: 70px 0 15px;
+    }
+      nav ul {
+        display: none;
+    }
+      nav ul li {
+        float: none;
+    }
+      nav ul li a {
+        padding: 15px;
+        line-height: 20px;
+    }
+      nav ul li ul li a {
+        padding-left: 30px;
+    }
+    
+}
+
+#nav-toggle {
+    position: absolute;
+    left: 18px;
+    top: 22px;
+    cursor: pointer;
+    padding: 10px 35px 16px 0px;
+}
+
+#nav-toggle span,
+#nav-toggle span:before,
+#nav-toggle span:after {
+  cursor: pointer;
+  border-radius: 1px;
+  height: 5px;
+  width: 35px;
+  background: #463f3f;
+  position: absolute;
+  display: block;
+  content: '';
+  transition: all 300ms ease-in-out;
+}
+
+#nav-toggle span:before {
+    top: -10px;
+}
+#nav-toggle span:after {
+    bottom: -10px;
+}
+#nav-toggle.active span {
+    background-color: transparent;
+}
+#nav-toggle.active span:before, #nav-toggle.active span:after {
+    top: 0;
+}
+#nav-toggle.active span:before {
+    transform: rotate(45deg);
+}
+#nav-toggle.active span:after {
+    transform: rotate(-45deg);
+}
+
+@media screen and (min-width: 800px) {
+    .nav-list {
+      display: block !important;
+      position: fixed;
+      right: 200px;
+      z-index: 1;
+    }
+}
+
+.nav-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    height: 70px;
+    background: #ffffff;
+}
+
+#logo img {
+  height: 50px;
+  margin-top: 2px;
+}
+
+#logo {
+    padding-left: 20px;
+    text-transform: uppercase;
+    font-size: 1.4em;
+    float: left;
+}
+
+#logo a,
+#logo a:visited {
+  color: #463f3f;
+  text-decoration: none;
+}
+
+* {box-sizing:border-box}
+
+/* Slideshow container */
+.slideshow-container {
+  max-width: 1500px;
+  position: relative;
+  margin: auto;
+  margin-top: 5px;
+}
+
+/* Hide the images by default */
+.mySlides {
+  display: none;
+}
+
+/* Next & previous buttons */
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  margin-top: -22px;
+  padding: 16px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+}
+
+/* Position the "next button" to the right */
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover, .next:hover {
+  background-color: rgba(0,0,0,0.8);
+}
+
+/* Caption text */
+.text {
+  color: #f2f2f2;
+  font-size: 15px;
+  padding: 8px 12px;
+  position: absolute;
+  bottom: 8px;
+  width: 100%;
+  text-align: center;
+}
+
+/* The dots/bullets/indicators */
+.dot {
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.active, .dot:hover {
+  background-color: #717171;
+}
+
+/* Fading animation */
+.fade {
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+img {
+    height: 500px;
+    object-fit: cover;
+}
+
+@keyframes fade {
+  from {opacity: .4}
+  to {opacity: 1}
+}
+
+#section1 {
+    padding-top:50px;
+    height:500px;
+    color: #463f3f;
+    background-color: #ffffff;
+}
+
+#custom {
+  height: 100px;
+  margin-left: 250pt;
+
+}
+#secure {
+  height: 100px;
+  margin-left: 100pt;
+}
+
+#speed {
+  height: 100px;
+  margin-left: 100pt;
+}
+
+#cool {
+  height: 100px;
+  margin-left: 100pt;
+}
+
+#section1 h1 {
+  text-align: center;
+  font-size: 35pt;
+}
+
+#section1 p {
+  text-align: center;
+  font-size: 15pt;
+}
+
+#sat{
+  font-size: 10pt;
+  margin-top: -80pt;
+  margin-left: 230pt;
+}
+
+#sat1{
+  font-size: 10pt;
+  margin-left: 235pt;
+}
+
+#sec{
+  font-size: 10pt;
+  margin-left: 395pt;
+  margin-top: -30pt;
+}
+
+#sec1{
+  font-size: 10pt;
+  margin-left: 393pt;
+}
+
+#sec2{
+  font-size: 10pt;
+  margin-left: 398pt;
+}
+
+#niv{
+  font-size: 10pt;
+  margin-left: 577pt;
+  margin-top: -45pt;
+}
+
+#niv1{
+  font-size: 10pt;
+  margin-left: 600pt;
+}
+
+#curtir{
+  font-size: 10pt;
+  margin-left: 755pt;
+  margin-top: -30pt;
+}
+
+#curtir1{
+  font-size: 10pt;
+  margin-left: 759pt;
+}
+
+#equipa h1{
+  text-align: center;
+  font-size: 32px;
+  margin-top: 20pt;
+  color: #463f3f;  
+}
+
+.circportrait {
+  position: relative; 
+  width: 230px; 
+  height: 230px; 
+  overflow: hidden; 
+  border-radius: 50%;
+  margin-left: 300pt;
+}
+
+.circportrait:hover .overlay{
+  opacity: 1;
+}
+
+#portrait:hover .overlay{
+  opacity: 1;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  width: 100%;
+  opacity: 0;
+  transition: .5s ease;
+  background-color: #4584cb;
+}
+
+#t1{
+  color: white;
+  font-size: 20px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+#t2{
+  color: white;
+  font-size: 20px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+#portrait{
+  position: relative; 
+  width: 230px; 
+  height: 230px; 
+  border-radius: 50%;
+  overflow: hidden;
+  margin-left: 630pt;
+  margin-top: -170pt;
+}
+
+#ava {
+  width: 100%; 
+  height: auto;
+}
+
+#ava1{
+  width: 100%; 
+  height: auto;
+}
+
+#section2 {
+    padding-top:50px;
+    height:500px;
+    color: #463f3f; 
+    background-color: #ffffff;
+}
+
+#section2 h1{
+  text-align: center;
+  font-size: 35pt;
+}
+
+#section2 p {
+  text-align: center;
+  font-size: 15pt;
+}
+
+#titpreco{
+  color: #463f3f;
+  font-size: 32px;
+  padding: 50px 0;
+  text-align: center;
+}
+
+hr.linha {
+ border: 1px solid #4584cb; 
+}
+.price-container{
+  margin-top: -230pt;
+}
+
+.price-row{
+  width: 90%;
+  max-width: 1100px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-gap: 25px;
+}
+
+.price-col{
+  background: #463f3f;
+  padding: 10% 15%;
+  border-radius: 10px;
+  color: #fff;
+  text-align: center;
+}
+
+.price-col h1{
+  font-size: 20px;
+}
+
+.price-col h2{
+  font-size: 45px;
+  margin: 20px 0 20px;
+  font-weight: 50;
+}
+
+.price-col ul{
+  text-align: left;
+  margin: 20px 0;
+  color: #ddd;
+  list-style: none;
+}
+
+.price-col ul li{
+  margin: 15px 0;
+}
+
+.price-col ul li::before{
+  content: '\2022';
+  color: #4584cb;
+  font-weight: bold;
+  margin-right: 8px;
+}
+.price-col button{
+  width: 100%;
+  padding: 14px 0;
+  background: transparent;
+  color: #fff;
+  font-size: 15px;
+  border: 1px solid #4584cb;
+  border-radius: 6px;
+  margin-top: 30px;
+  cursor: pointer;
+  transition: background 0.5s;
+}
+
+
+.price-col button:hover{
+  background: #4584cb;
+}
+
+#section3 {
+    padding-top:50px;
+    height:500px;
+    color: #463f3f;
+    background-color: #ffffff;
+}
+
+#section3 h1{
+  text-align: center;
+  font-size: 35pt;
+}
+
+#section3 p {
+  text-align: center;
+  font-size: 15pt;
+}
+
+#section4 {
+    padding-top:50px;
+    height:500px;
+    color: #463f3f; 
+    background-color: #ffffff;
+}
+
+#section4 h1{
+  text-align: center;
+  font-size: 35pt;
+}
+
+#section4 p {
+  text-align: center;
+  font-size: 15pt;
+}
+
+#section42 {
+    padding-top:50px;
+    height:500px;
+    color: #463f3f; 
+    background-color: #ffffff;
+}
+
+/*Contacte-nos*/
+
+input[type=text], select, textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  margin-top: 6px;
+  margin-bottom: 16px;
+  resize: vertical;
+}
+
+input[type=submit] {
+  width: 30%;
+  padding: 14px 0;
+  background: #4584cb;
+  color: #fff;
+  font-size: 15px;
+  border: 1px solid #4584cb;
+  border-radius: 6px;
+  margin-top: 30px;
+  cursor: pointer;
+  transition: background 0.5s;
+}
+
+input[type=submit]:hover {
+  background-color: #fff;
+  color:#4584cb
+}
+
+/* Style the container/contact section */
+.contact-container {
+  border-radius: 5px;
+  background-color: #fff;
+  padding: 10px;
+}
+
+/* Create two columns that float next to eachother */
+.column {
+  float: left;
+  width: 50%;
+  margin-top: 6px;
+  padding: 20px;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+  .column, input[type=submit] {
+    width: 100%;
+    margin-top: 0;
+  }
+}
+
+.contact-container h2{
+  text-align: center;
+  color: #463f3f;
+  font-size: 35pt;
+}
+
+form{
+  text-align: right;
+}
+
+input{
+  margin-left: 380px;
+}
+
+textarea{
+  margin-left: 380px;
+}
+
+#botao{
+  margin-left: 610px;
+}
